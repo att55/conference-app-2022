@@ -8,6 +8,7 @@ dependencies {
     implementation(projects.coreUi)
     implementation(projects.coreDesignsystem)
     implementation(projects.coreModel)
+    implementation("androidx.browser:browser:1.4.0")
     testImplementation(projects.coreTesting)
 
     implementation(libs.accompanistPager)

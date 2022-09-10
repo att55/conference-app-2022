@@ -1,7 +1,9 @@
 package io.github.droidkaigi.confsched2022.feature.about
 
 import android.content.Context
+import android.net.Uri
 import androidx.annotation.StringRes
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -162,7 +164,13 @@ fun About(
                     imageVector = Icons.Filled.PrivacyTip,
                     textResId = string.about_privacy,
                     onClick = {
-                        // TODO: Implement privacy policy
+                        val uri = Uri.parse("https://portal.droidkaigi.jp/about/privacy")
+                        CustomTabsIntent.Builder().also { builder ->
+                            builder.setShowTitle(true)
+                            builder.build().also {
+                                it.launchUrl(context, uri)
+                            }
+                        }
                     }
                 )
 
